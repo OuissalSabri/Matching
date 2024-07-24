@@ -1,0 +1,87 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium">
+            <h1 class="big-title">Recherche de candidats appropriés</h1>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-combobox label="Diplôme demandé" options={diplomaOptions} onchange={handleDiplomaChange}></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox label="Domaine du diplôme demandé" options={domainOptions} onchange={handleDomainChange}></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox label="Salaire demandé" options={salaryOptions} onchange={handleSalaryChange}></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox label="Contrat demandé" options={contractOptions} onchange={handleContractChange}></lightning-combobox>
+                </div>
+            </div>
+
+            <div class="slds-col">
+                <lightning-combobox label="Niveau d'expérience" options={experienceOptions} onchange={handleExperienceChange}></lightning-combobox>
+            </div>        
+            <div class="slds-col">
+                <lightning-dual-listbox name="competences"
+                                        label="Compétences demandées"
+                                        source-label="Disponible"
+                                        selected-label="Sélectionné"
+                                        field-level-help="Select your preferred competences"
+                                        options={competenceOptions}
+                                        value={competences}
+                                        onchange={handleCompetenceChange}></lightning-dual-listbox>
+            </div>
+                <div class="slds-box custom-selected-competences" >
+                    <p>Compétences sélectionnées: {competences}</p>
+                </div>
+         
+                <div class="slds-p-top_medium">
+                    <lightning-button label="Rechercher" variant="brand" onclick={handleSearch}></lightning-button>
+                </div>
+                
+                
+                <template if:true={showResults}>
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer custom-table">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Nom">NomCandidat</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Nom">Nom</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Prénom">Prénom</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Poste">Poste</div>
+                                </th> 
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Email">Email</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Statut">Statut</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={candidates} for:item="candidate">
+                                <tr key={candidate.Id}>
+                                    <td>
+                                        <a data-id={candidate.Id} onclick={handleNavigation}>{candidate.Name}</a>
+                                    </td>
+                                    <td>{candidate.Nom__c}</td>
+                                    <td>{candidate.Pr_nom__c}</td>
+                                    <td>{candidate.Poste__c}</td>
+                                    <td>{candidate.Adress_email__c}</td>
+                                    <td>{candidate.Statut__c}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+                
+               
+                
+        </div>
+    </lightning-card>
+</template>

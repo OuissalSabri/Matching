@@ -1,0 +1,78 @@
+.slds-p-around_medium {
+    padding: 1rem;
+}
+
+.slds-grid {
+    display: flex;
+    flex-wrap: wrap;
+}  
+ 
+.slds-col {
+    flex: 1 0 100%;
+}
+
+.slds-list_horizontal {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.slds-m-around_small {
+    margin: 0.5rem;
+}
+
+.custom-table {
+    width: 100%;
+    margin: 20px auto 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.custom-table th, .custom-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.custom-table thead {
+    background-color: #f4f6f9;
+}
+
+.custom-table th {
+    font-weight: bold;
+    color: #2a2a2a;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.custom-table a {
+    color: #0070d2;
+    text-decoration: none;
+}
+
+.custom-table a:hover {
+    text-decoration: underline;
+}
+
+
+.big-title {
+    font-size: 1.2rem;
+    text-align: center;
+    color: rgb(43, 119, 226);
+    padding-bottom: 4px;
+    font-weight: bold;
+    
+}
+
+.custom-selected-competences {
+    color: rgb(43, 119, 226);
+}
